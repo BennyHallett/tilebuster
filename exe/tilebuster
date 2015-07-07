@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require 'tilebuster/game'
+
+game = TileBuster::Game.new
+game.show
