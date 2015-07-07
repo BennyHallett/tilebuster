@@ -1,15 +1,23 @@
+require 'tilebuster/settings'
+require 'tilebuster/ball'
+require 'tilebuster/collidable'
+require 'tilebuster/drawable'
+require 'gosu'
+
 module TileBuster
   class Ball
     include TileBuster::Settings
     include TileBuster::Collidable
+    include TileBuster::Drawable
 
     def initialize
-      @width = 4
-      @height = 4
+      @width = 8
+      @height = 8
       @x = ((screen_width / 2) - (@width / 2)).to_i
       @y = screen_height - 100
-      @dx = 1.2
-      @dy = -0.5
+      @dx = 2.5
+      @dy = -2.5
+      self.color = Gosu::Color::YELLOW
     end
 
     def top_bottom_collision

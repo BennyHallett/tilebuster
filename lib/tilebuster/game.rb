@@ -1,5 +1,6 @@
 require 'gosu'
 require 'tilebuster/settings'
+require 'tilebuster/ball'
 
 module TileBuster
   class Game < Gosu::Window
@@ -9,7 +10,7 @@ module TileBuster
       super screen_width, screen_height
       self.caption = 'TileBuster'
 
-      @ball = @ball.new
+      @ball = ::TileBuster::Ball.new
     end
 
     def update
@@ -17,7 +18,7 @@ module TileBuster
     end
 
     def draw
-      @ball.draw
+      @ball.draw(self)
     end
 
   end
