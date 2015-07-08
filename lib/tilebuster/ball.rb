@@ -3,6 +3,7 @@ require 'tilebuster/ball'
 require 'tilebuster/collidable'
 require 'tilebuster/drawable'
 require 'gosu'
+require 'securerandom'
 
 module TileBuster
   class Ball
@@ -21,11 +22,15 @@ module TileBuster
     end
 
     def top_bottom_collision
-      @dx *= -1
+      @dy = (@dy * -1) + tweak
     end
 
     def left_right_collision
-      @dy *= -1
+      @dx = (@dx * -1) + tweak
+    end
+
+    def tweak
+      (SecureRandom.random_number * 2) - 1
     end
 
     def update

@@ -12,7 +12,7 @@ module TileBuster
     end
 
     def random_color
-      [Gosu::Color::GRAY, Gosu::Color::AQUA, Gosu::Color::RED, Gosu::Color::GREEN, Gosu::Color::BLUE, Gosu::Color::YELLOW, Gosu::Color::FUCHSIA, Gosu::Color::CYAN].sample
+      [Gosu::Color::AQUA, Gosu::Color::RED, Gosu::Color::GREEN, Gosu::Color::BLUE, Gosu::Color::YELLOW, Gosu::Color::FUCHSIA, Gosu::Color::CYAN].sample
     end
 
     def draw(window)

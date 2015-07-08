@@ -1,22 +1,28 @@
+require 'tilebuster/settings'
+require 'tilebuster/collidable'
+require 'tilebuster/drawable'
+
 module TileBuster
   class Paddle
     include TileBuster::Settings
     include TileBuster::Collidable
+    include TileBuster::Drawable
 
     def initialize
-      @width = 30
-      @height = 6
+      @width = 65
+      @height = 10
       @x = ((screen_width / 2) - (@width / 2)).to_i
-      @y = screen_height - 15
+      @y = screen_height - 35
       @direction = 0
+      self.color = Gosu::Color::GRAY
     end
 
     def moving_left
-      @direction = -1
+      @direction = -5
     end
 
     def moving_right
-      @direction = 1
+      @direction = 5
     end
 
     def stop
@@ -33,7 +39,7 @@ module TileBuster
     end
 
     def reset_within_bounds
-      if x < 0
+      if @x < 0
         @x = 0
       else
         @x = screen_width - @width
